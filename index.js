@@ -15,8 +15,8 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve frontend files (make sure your frontend folder is named "frontend" inside BACKEND)
-app.use(express.static(path.join(__dirname, "frontend")));
+// ✅ Corrected path (capital F + move one level up)
+app.use(express.static(path.join(__dirname, "../Frontend")));
 
 // ✉️ Contact form API
 app.post('/api/contact', async (req, res) => {
@@ -78,7 +78,7 @@ app.post('/api/contact', async (req, res) => {
 
 // 🌐 Serve frontend for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+  res.sendFile(path.join(__dirname, "../Frontend/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
