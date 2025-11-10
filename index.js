@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // ✅ Corrected path (capital F + move one level up)
-app.use(express.static(path.join(__dirname, "../Frontend")));
+app.use(express.static(path.join(__dirname, "Frontend")));
 
 // ✉️ Contact form API
 app.post('/api/contact', async (req, res) => {
@@ -77,8 +77,8 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // 🌐 Serve frontend for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Frontend", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
